@@ -98,13 +98,30 @@ formRef.addEventListener("submit", (e) => {
   const inputValue = inputRef.value;
   console.log(inputValue);
   fetchWeatherData(inputValue);
+  inputRef.value = ""
 });
 
 function fetchWeatherData(location) {
-  fetch(
-    `https://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${location}&aqi=no`
-  )
-    .then((res) => res.json())
-    .then((data) => renderWeatherData(data))
-    .catch((err) => alert("Error",err))
+  if (location === ""){
+    location = "Delhi"
+
+    fetch(
+      `https://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${location}&aqi=no`
+    )
+      .then((res) => res.json())
+      .then((data) => renderWeatherData(data))
+      .catch((err) => alert("Location is not found",err))
+  }
+  else{
+
+    fetch(
+      `https://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${location}&aqi=no`
+    )
+      .then((res) => res.json())
+      .then((data) => renderWeatherData(data))
+      .catch((err) => alert("Location is not found",err))
+    }
+
 }
+  
+

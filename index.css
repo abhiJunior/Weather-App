@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
@@ -9,7 +10,7 @@
 }
 
 body{
-   background-color:rgb(17 24 39);; 
+   background-color: #1e1e1e;; 
     
 }
 
@@ -29,7 +30,7 @@ body{
 
 .weather .temp{
     font-size: xx-large;
-    
+    font-family: serif;
     width: auto;
     height: auto;
     padding: 5px;
@@ -51,6 +52,7 @@ body{
 
 .time_location p{
     font-size: xx-large;
+    font-family: serif;
     color: white;
     width: auto;
     height: auto;
@@ -61,6 +63,7 @@ body{
 
 .time_location span{
     font-size: medium;
+    font-family: serif;
     
 }
 
@@ -74,20 +77,18 @@ body{
 }
 .weather_condition img{
     width: 8rem;
+    font-family: fantasy;
     height: 8rem;
     
 }
 
 .weather_condition span{
     font-size: large;
+    font-family: sans-serif;
     font-style: bold;
     margin-bottom: 20px;
    
 }
-
-
-
-
 
 
 nav{
@@ -103,21 +104,20 @@ nav{
 .input-data input{
     width: 300px;
     padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 20px;
-    outline: none;
-    background: #250886;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 18px;
     color: white;
+    font-family: sans-serif;
+    outline: none;
+    background: darkgray;
+    
 }
 
-.input-data input:focus{
-    border-color: #007bff;
-    box-shadow: 0 0 5px #007bff;
-}
+
 
 .input-data button{
-    background-color: #820a7e; /* Green */
+    background-color: rgb(75, 67, 67); /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -131,7 +131,7 @@ nav{
     
 }
 .input-data button:hover{
-    background-color: #065f3f;
+    background-color: white;
+    color: black;
     animation-duration: 300ms;
 }
-
