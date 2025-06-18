@@ -10,30 +10,34 @@
 </head>
 <body>
     
-     <div class="container">
-         <div class="weather">  
-             <div class="temp">Temperature</div>
+    <div class="container">
+        <div class="weather_condition">
+            <p><img src="" alt="weather-icon"></p>
+            <!-- <span>Condition</span> -->
+        </div> 
+        <div class="weather">  
+             <div class="temp">
+                <span class="temp-value">Temperature</span>
+                <span class="temp-unit">℃</span>
+            </div>
              <div class="time_location">
                  <p>Location</p>
                  <span>Random time and Date</span>
              </div> 
          </div>
-         <div class="weather_condition">
-            <p><img src="" alt="weather-icon"></p>
-            <span>Condition</span>
-       </div>   
-     </div>
+          
+            <nav >
+                <form class="input-data">
+                    <input type="text" placeholder="Search_location" class="searchField">
+                    <button type="submit">Search</button>
+                </form>
+            </nav>
 
-
-     <nav >
-         <form class="input-data">
-             <input type="text" placeholder="Search_location" class="searchField">
-             <button type="submit">Search</button>
-         </form>
-     </nav>
-
-
+            <!-- <div class="toggle">
+                <button>TemperConversion</button>
+            </div> -->
+    
+    </div>
+    <script src="index.js"></script>
+    
 </body>
-
-<script src="index.js"></script>
-</html>     

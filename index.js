@@ -40,11 +40,16 @@ const weatherdata = {
   },
 };
 
-const temRef = document.querySelector(".temp");
+// const conversionButton = document.querySelector(".toggle button")
+// const tempUnitRef = document.querySelector(".temp .temp-value")
+const temRef = document.querySelector(".temp .temp-value");
 const locationRef = document.querySelector(".time_location p");
 const timeLocationRef = document.querySelector(".time_location span");
 const imgRef = document.querySelector(".weather_condition p img");
-const conditionRef = document.querySelector(".weather_condition span");
+// const conditionRef = document.querySelector(".weather_condition span");
+
+
+
 
 function renderWeatherData(weatherdata) {
   temRef.innerHTML = weatherdata.current.temp_c ;
@@ -53,7 +58,7 @@ function renderWeatherData(weatherdata) {
     weatherdata.location.localtime,
     weatherdata.current.is_day
   );
-  conditionRef.innerText = weatherdata.current.condition.text;
+  // conditionRef.innerText = weatherdata.current.condition.text;
   imgRef.src = weatherdata.current.condition.icon;
 }
 
@@ -102,26 +107,20 @@ formRef.addEventListener("submit", (e) => {
 });
 
 function fetchWeatherData(location) {
-  if (location === ""){
-    location = "Delhi"
-
     fetch(
       `https://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${location}&aqi=no`
     )
       .then((res) => res.json())
       .then((data) => renderWeatherData(data))
       .catch((err) => alert("Location is not found",err))
-  }
-  else{
-
-    fetch(
-      `https://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${location}&aqi=no`
-    )
-      .then((res) => res.json())
-      .then((data) => renderWeatherData(data))
-      .catch((err) => alert("Location is not found",err))
-    }
-
 }
-  
 
+
+
+// conversionButton.addEventListener("click",function(){
+//   console.log("clicked")
+//   renderWeatherDataButton()
+// })
+
+const data = fetchWeatherData("New Delhi");
+renderWeatherData(data)
