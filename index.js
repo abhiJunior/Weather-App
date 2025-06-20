@@ -43,16 +43,29 @@ const weatherdata = {
 // const conversionButton = document.querySelector(".toggle button")
 // const tempUnitRef = document.querySelector(".temp .temp-value")
 const temRef = document.querySelector(".temp .temp-value");
+const tempunit = document.querySelector(".temp .temp-unit")
 const locationRef = document.querySelector(".time_location p");
 const timeLocationRef = document.querySelector(".time_location span");
 const imgRef = document.querySelector(".weather_condition p img");
 // const conditionRef = document.querySelector(".weather_condition span");
+const tempbuttonConversionRef = document.querySelector(".container .toggle button")
+console.log(tempbuttonConversionRef)
+console.log(tempunit)
 
+let temp_F = false
 
-
+let currentLocation
 
 function renderWeatherData(weatherdata) {
-  temRef.innerHTML = weatherdata.current.temp_c ;
+  
+  if (temp_F){
+    temRef.innerHTML = weatherdata.current.temp_f ;
+    tempunit.innerText = "℉"
+  }else{
+    temRef.innerHTML = weatherdata.current.temp_c ;
+    tempunit.innerText = "℃"
+  }
+  
   locationRef.innerText = weatherdata.location.name;
   timeLocationRef.innerText = locationDetail(
     weatherdata.location.localtime,
@@ -101,7 +114,8 @@ formRef.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputRef = document.querySelector("input.searchField");
   const inputValue = inputRef.value;
-  console.log(inputValue);
+  currentLocation = inputRef.value
+  console.log(currentLocation)
   fetchWeatherData(inputValue);
   inputRef.value = ""
 });
@@ -117,10 +131,17 @@ function fetchWeatherData(location) {
 
 
 
-// conversionButton.addEventListener("click",function(){
-//   console.log("clicked")
-//   renderWeatherDataButton()
-// })
+tempbuttonConversionRef.addEventListener("click",function(){
+  if (temp_F === false){
+    temp_F = true
+    
+    fetchWeatherData(currentLocation)
+  }else{
+    temp_F = false
+    fetchWeatherData(currentLocation)
+  }
+})
+
 
 const data = fetchWeatherData("New Delhi");
 renderWeatherData(data)

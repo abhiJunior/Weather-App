@@ -135,8 +135,9 @@ nav{
 
 .toggle{
     width: 100%;
-    background: #000;
+    background: transparent;
     display: flex;
+    justify-content: center;
     margin-top: 20px;
 
 }
@@ -148,6 +149,7 @@ nav{
     background: lightskyblue;
     cursor: pointer;
     border-radius: 5px;
+    border: none;
 
 }
 
